@@ -10,20 +10,10 @@ require('colors')
 -- LSP
 require('lsp')
 require('lsp.bash')
-require('lsp.css')
-require('lsp.js-ts')
 require('lsp.json')
 require('lsp.latex')
 require('lsp.lua')
-require('lsp.rust')
 require('lsp.vim')
-
-if Python.useKite then
-    require('lsp.kite')
-else
-    require('lsp.python')
-end
-
 require('lsp.efm')
 
 -- Plugin configs
@@ -33,7 +23,6 @@ require('plugins.colorizer')
 require('plugins.comment')
 require('plugins.cmp')
 require('plugins.dashboard')
-require('plugins.doge')
 require('plugins.galaxyline')
 require('plugins.gitsigns')
 require('plugins.indent-blankline')

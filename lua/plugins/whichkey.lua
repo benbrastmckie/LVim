@@ -53,26 +53,25 @@ local nopts = {
 
 local nmappings = {
     [' '] = 'which_key_ignore',
+    -- d = {'<cmd>close<cr>', 'close window'},
+    d = {'<cmd>BufferClose<cr>', 'close buffer'},
+    D = {'<cmd>BufferClose!<cr>', 'close buffer'},
     f = {'<cmd>Telescope find_files<cr>', 'find files'},
-    p = {'<cmd>Telescope find_files<cr>', 'find files'},
     H = {'<cmd>Dashboard<cr>', 'home'},
-    ['/'] = {'<cmd>CommentToggle<cr>', 'toggle comment'},
+    -- ['/'] = {'<cmd>CommentToggle<cr>', 'toggle comment'},
     ['?'] = {'<cmd>NvimTreeFindFile<cr>', 'find current file'},
     e = {'<cmd>NvimTreeToggle<cr>', 'explorer'},
     s = {'<cmd>w<cr>', 'save'},
     S = {'<cmd>SessionSave<cr>', 'save session'},
     q = {'<cmd>wqa<cr>', 'save & quit'},
     Q = {'<cmd>qa!<cr>', 'force quit'},
-    W = {'<cmd>close<cr>', 'close window'},
-    x = {'<cmd>BufferClose<cr>', 'close buffer'},
-    X = {'<cmd>BufferClose!<cr>', 'close buffer'},
     ['.'] = {'<cmd>luafile %<cr>', 'source file'},
-    h = {'<cmd>sp<cr>', 'split below'},
-    v = {'<cmd>vert sp<cr>', 'split right'},
-    i = {'<cmd>PasteImg<cr>', 'paste image'},
+    -- h = {'<cmd>sp<cr>', 'split below'},
+    -- v = {'<cmd>vert sp<cr>', 'split right'},
+    -- i = {'<cmd>PasteImg<cr>', 'paste image'},
     T = {'<cmd>ToggleTerm<cr>', 'toggle terminal'},
-    N = {'<cmd>enew<cr>', 'new buffer'},
-    R = {'<cmd>e<cr>', 'reload buffer'},
+    -- N = {'<cmd>enew<cr>', 'new buffer'},
+    -- R = {'<cmd>e<cr>', 'reload buffer'},
     I = {'<cmd>IndentBlanklineToggle<cr>', 'toggle indent lines'},
     -- Quick surround
     ['"'] = {'ciw"<C-r>""<esc>', '""'},
@@ -81,25 +80,6 @@ local nmappings = {
     [')'] = {'ciw(<C-r>")<esc>', '()'},
     ['}'] = {'ciw{<C-r>"}<esc>', '{}'},
     [']'] = {'ciw[<C-r>"]<esc>', '[]'},
-
-    b = {
-        name = '+buffer',
-        ['>'] = {'<cmd>BufferMoveNext<cr>', 'move right'},
-        ['<'] = {'<cmd>BufferMovePrevious<cr>', 'move left'},
-        b = {'<cmd>BufferPick<cr>', 'pick buffer'},
-        x = {'<cmd>BufferClose<cr>', 'close buffer'},
-        c = {'<cmd>BufferCloseAllButCurrent<cr>', 'close all other buffers'},
-        n = {'<cmd>BufferNext<cr>', 'next buffer'},
-        p = {'<cmd>BufferPrevious<cr>', 'prev buffer'},
-        t = {
-            name = '+tab',
-            t = {'<cmd>tabnew<cr>', 'new tab'},
-            c = {'<cmd>tabclose<cr>', 'close tab'},
-            n = {'<cmd>tabn<cr>', 'next tab'},
-            p = {'<cmd>tabp<cr>', 'prev tab'},
-            l = {'<cmd>tabs<cr>', 'list tabs'}
-        }
-    },
 
     d = {
         name = '+debug',
@@ -112,11 +92,6 @@ local nmappings = {
         t = {'<cmd>DebugToggleRepl<cr>', 'toggle repl'},
         l = {'<cmd>DebugListBreakpoints<cr>', 'list breakpoints'},
         f = {'<cmd>DebugFloatElement<cr>', 'float ui element'},
-        p = {
-            name = '+python',
-            m = {'<cmd>PythonTestMethod<cr>', 'test method'},
-            c = {'<cmd>PythonTestClass<cr>', 'test class'}
-        }
     },
 
     F = {
@@ -165,6 +140,7 @@ local nmappings = {
         b = {'<cmd>Git blame_line<CR>', 'blame'},
         B = {'<cmd>GBrowse<cr>', 'browse'},
         d = {'<cmd>Git diff<cr>', 'diff'},
+        g = {'<cmd>lua LazygitToggle()<CR>', 'lazygit'}
         j = {'<cmd>Git next_hunk<CR>', 'next hunk'},
         k = {'<cmd>Git prev_hunk<CR>', 'prev hunk'},
         L = {'<cmd>Git log<cr>', 'log'},
@@ -174,7 +150,6 @@ local nmappings = {
         s = {'<cmd>Git stage_hunk<CR>', 'stage hunk'},
         S = {'<cmd>Gstatus<cr>', 'status'},
         u = {'<cmd>Git undo_stage_hunk<CR>', 'undo stage hunk'},
-        g = {'<cmd>lua LazygitToggle()<CR>', 'lazygit'}
     },
 
     l = {
@@ -200,7 +175,6 @@ local nmappings = {
         s = {'<cmd>Telescope lsp_document_symbols<cr>', 'document symbols'},
         S = {'<cmd>Telescope lsp_workspace_symbols<cr>', 'workspace symbols'},
         R = {'<cmd>LspRestart<cr>', 'restart lsp'},
-        i = {'<cmd>normal A  # type: ignore<cr>bbbbhhh', 'pyright ignore'}
     },
 
     m = {
@@ -209,46 +183,6 @@ local nmappings = {
         s = {'<cmd>MarkdownPreviewStop<cr>', 'stop preview'},
         t = {'<cmd>MarkdownPreviewToggle<cr>', 'toggle preview'}
     },
-
-    w = {
-        name = '+window',
-        ['<'] = {'<C-w><', 'resize left'},
-        ['>'] = {'<C-w>>', 'resize right'},
-        ['-'] = {'<C-w>-', 'resize down'},
-        ['+'] = {'<C-w>+', 'resize height'},
-        ['='] = {'<C-w>=', 'reset window'},
-        h = {'<cmd>split<cr>', 'split horizontal'},
-        v = {'<cmd>vsplit<cr>', 'split vertical'},
-        d = {'<cmd>close<cr>', 'close split window'}
-    },
-
-    r = {
-        name = '+run',
-        r = {'<Plug>SnipRunOperator', 'run <movement>'},
-        l = {'<Plug>SnipRun', 'run line'},
-        a = {'<cmd>%SnipRun<cr>', 'run all'},
-        c = {'<Plug>SnipClose', 'clear output'},
-        x = {'<Plug>SnipReset', 'reset'},
-        d = {'<Plug>SnipReplMemoryClean', 'clear memory'},
-        i = {'<Plug>SnipInfo', 'info'},
-        p = {
-            name = "+ipython",
-            p = {'<cmd>IPython<cr>', 'start kernel'},
-            r = {'<Plug>(IPy-RunOp)', 'run'},
-            c = {'<Plug>(IPy-RunCell)', 'run cell'},
-            a = {'<Plug>(IPy-RunAll)', 'run all'},
-            l = {'<Plug>(IPy-Run)', 'run line'},
-            i = {'<Plug>(IPy-WordObjInfo)', 'inspect'},
-            x = {'<Plug>(IPy-Interrupt)', 'interrupt kernel'},
-            q = {'<Plug>(IPy-Terminate)', 'terminate kernel'}
-        }
-    },
-
-    n = {
-        name = '+notebook',
-        c = {'<cmd>norm i# %%<cr>o', 'code cell'},
-        m = {'<cmd>norm i# %% [markdown]<cr>o# ', 'markdown cell'}
-    }
 
 }
 
@@ -265,13 +199,9 @@ local vopts = {
 }
 
 local vmappings = {
-    r = {'<Plug>SnipRun', 'run selection'},
-    p = {'<Plug>(IPy-Run)', 'ipython run selection'},
-
     d = {
         name = '+debug',
-        e = {'<cmd>DebugEvaluate<cr>', 'evaluate selected expression'},
-        s = {'<cmd>PythonDebugSelection<cr>', 'py debug selection'}
+        e = {'<cmd>DebugEvaluate<cr>', 'evaluate selected expression'}
     }
 
 }
