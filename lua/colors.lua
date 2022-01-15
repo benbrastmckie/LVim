@@ -1,11 +1,10 @@
 vim.go.t_Co = "256"
 vim.go.termguicolors = true
 vim.go.background = "dark"
+vim.go.colorscheme = "gruvbox"
 vim.cmd('let &t_8f = "\\<Esc>[38;2;%lu;%lu;%lum"')
 vim.cmd('let &t_8b = "\\<Esc>[48;2;%lu;%lu;%lum"')
 vim.cmd('let g:deus_termcolors=256')
-
-vim.cmd('colorscheme ' .. Colorscheme)
 
 -- vim.cmd('hi Cursor guibg=#EBDBB2')
 -- vim.cmd('set guicursor=n-v:block-Cursor')
@@ -15,21 +14,20 @@ vim.cmd('colorscheme ' .. Colorscheme)
 -- vim.cmd('hi oCursor guibg=#E5C07B')
 -- vim.cmd('set guicursor+=o:block-oCursor')
 
-vim.cmd('hi Visual guibg=#E5C07B guifg=Black gui=none')
+-- vim.cmd('hi Visual guibg=#E5C07B guifg=Black gui=none')
+-- vim.cmd('hi MatchParen cterm=bold guifg=#F4852B guibg=#5C5C5C')
 
-vim.cmd('hi MatchParen cterm=bold guifg=#F4852B guibg=#5C5C5C')
-
-if Colorscheme == 'deus' then
-    vim.cmd('hi ColorColumn guibg=#343B46')
-    vim.cmd('hi GitSignsChange guifg=#E5C07B')
-    vim.cmd('hi BufferCurrentSign guifg=#90C966 ')
-    vim.cmd('hi BufferVisibleSign guifg=#73BA9F ')
-    vim.cmd('hi BufferInactiveSign guifg=#83A598 ')
-elseif Colorscheme == 'two-firewatch' then
-    vim.cmd('hi GitSignsChange guifg=#E5C07B')
-    vim.cmd('hi SignColumn guibg=#282C34')
-    vim.cmd('hi BufferCurrentSign guifg=#90C966 ')
-    vim.cmd('hi BufferVisibleSign guifg=#73BA9F ')
-    vim.cmd('hi BufferInactiveSign guifg=#83A598 ')
-end
+-- if Colorscheme == 'deus' then
+--     vim.cmd('hi ColorColumn guibg=#343B46')
+--     vim.cmd('hi GitSignsChange guifg=#E5C07B')
+--     vim.cmd('hi BufferCurrentSign guifg=#90C966 ')
+--     vim.cmd('hi BufferVisibleSign guifg=#73BA9F ')
+--     vim.cmd('hi BufferInactiveSign guifg=#83A598 ')
+-- elseif Colorscheme == 'two-firewatch' then
+--     vim.cmd('hi GitSignsChange guifg=#E5C07B')
+--     vim.cmd('hi SignColumn guibg=#282C34')
+--     vim.cmd('hi BufferCurrentSign guifg=#90C966 ')
+--     vim.cmd('hi BufferVisibleSign guifg=#73BA9F ')
+--     vim.cmd('hi BufferInactiveSign guifg=#83A598 ')
+-- end
 

@@ -1,10 +1,11 @@
-require('utils')
+-- GENERAL
+require('settings')
 require('plugins')
 require('keymap')
-require('settings')
-require('functions')
-require('auto')
 require('colors')
+require('auto')
+require('utils')
+require('functions')
 
 -- LSP
 require('lsp')
@@ -15,7 +16,7 @@ require('lsp.lua')
 require('lsp.vim')
 require('lsp.efm')
 
--- Plugin configs
+-- PLUGIN CONFIGS
 require('plugins.autopairs')
 require('plugins.barbar')
 require('plugins.colorizer')

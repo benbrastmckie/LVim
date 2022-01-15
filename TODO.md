@@ -1,7 +1,9 @@
 # TODO
 
-- [ ] add missing mappings from old config
+- [x] finish general settings
+- [x] add missing mappings from old config
 - [ ] add missing plugins
+  - [ ] set plugin mappings
 - [ ] test config
 - [ ] add Cheatsheet.md
 - [ ] revise Readme.md
